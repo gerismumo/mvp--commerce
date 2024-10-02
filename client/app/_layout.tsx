@@ -2,11 +2,12 @@ import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import 'react-native-reanimated';
+import React from 'react';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import Login from './login';
+import SignUp from './signup';
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -28,12 +29,20 @@ export default function RootLayout() {
     return null;
   }
 
+ 
+
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Login/>
+      <SignUp/>
       {/* <Stack >
-        <Stack.Screen name="login" options={{ headerShown: true }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+      {!isLoggedIn ? (
+          <>
+            <Stack.Screen name="login" options={{ headerShown: false }} />
+            <Stack.Screen name="signup" options={{ headerShown: false }} />
+          </>
+        ) : (
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        )}
         <Stack.Screen name="+not-found" />
       </Stack> */}
     </ThemeProvider>
