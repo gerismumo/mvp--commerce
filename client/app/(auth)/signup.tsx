@@ -6,9 +6,12 @@ import { Colors } from '@/constants/Colors';
 import { Link } from 'expo-router';
 ;
 
-export default function Login() {
+export default function SignUp() {
 
   const LoginSchema = Yup.object().shape({
+    firstName: Yup.string().required('First name is required'),
+    lastName: Yup.string().required('Last name is required'),
+    phoneNumber: Yup.string().required('Phone number is required'),
     email: Yup.string().email('Invalid email').required('Email is required'),
     password: Yup.string().min(6, 'Password too short').required('Password is required'),
   });
@@ -20,11 +23,11 @@ export default function Login() {
   return (
     <View style={styles.container}>
         <View style={styles.textContainer}>
-            <Text style={styles.title}>Welcome Back</Text>
-            <Text style={styles.heading}>Sign in to continue</Text>
+            <Text style={styles.title}>Create an Account</Text>
+            <Text style={styles.heading}>Join us!</Text>
         </View>
       <Formik
-        initialValues={{ email: '', password: ''}}
+        initialValues={{firstName: '', lastName: '', phoneNumber: '', email: '', password: ''}}
         validationSchema={LoginSchema}
         onSubmit={(values: any) => {
           // Handle form submission
@@ -33,6 +36,42 @@ export default function Login() {
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
           <View style={styles.loginContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="First name"
+              placeholderTextColor="#CCCCCC"
+              onChangeText={handleChange('firstName')}
+              onBlur={handleBlur('firstName')}
+              value={values.firstName}
+              autoCapitalize="none"
+            />
+            {touched.firstName && errors.firstName && typeof errors.firstName === 'string' && (
+                <Text style={styles.error}>{errors.firstName}</Text>
+            )}
+            <TextInput
+              style={styles.input}
+              placeholder="Last name"
+              placeholderTextColor="#CCCCCC"
+              onChangeText={handleChange('lastName')}
+              onBlur={handleBlur('lastName')}
+              value={values.lastName}
+              autoCapitalize="none"
+            />
+            {touched.lastName && errors.lastName && typeof errors.lastName === 'string' && (
+                <Text style={styles.error}>{errors.lastName}</Text>
+            )}
+            <TextInput
+              style={styles.input}
+              placeholder="Phone Number"
+              placeholderTextColor="#CCCCCC"
+              onChangeText={handleChange('phoneNumber')}
+              onBlur={handleBlur('phoneNumber')}
+              value={values.phoneNumber}
+              autoCapitalize="none"
+            />
+            {touched.phoneNumber && errors.phoneNumber && typeof errors.phoneNumber === 'string' && (
+                <Text style={styles.error}>{errors.phoneNumber}</Text>
+            )}
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -58,29 +97,18 @@ export default function Login() {
             {touched.password && errors.password && typeof errors.password === 'string' && (
                 <Text style={styles.error}>{errors.password}</Text>
             )}
-            <View style={{display: "flex", flexDirection: "row", alignItems:"center",justifyContent:"space-between"}}>
-                <View style={{display: "flex", flexDirection: "row", alignItems:"center", justifyContent:"center", gap: 1}}>
-                    <Switch
-                        trackColor={{false: '#FF6000', true: '#FF6000'}}
-                        thumbColor={isEnabled ? '#ffffff' : '#373640'}
-                        ios_backgroundColor="#3e3e3e"
-                        onValueChange={toggleSwitch}
-                        value={isEnabled}
-                    />
-                    <Text style={{color: Colors.white}}>Remember me</Text>
-                </View>
-                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/">forgot password?</Link>
-            </View>
             <TouchableWithoutFeedback onPress={handleSubmit as any} >
                 <View style={styles.buttonContainer}>
-                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN </Text>
+                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN UP</Text>
                 </View>
             </TouchableWithoutFeedback>
             <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
-                <Text style={{color: Colors.white}} >Don't have an account?</Text>
-                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/">Sign Up</Link>
+                <Text style={{color: Colors.white}} >Already have an account?</Text>
+                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/login">Login</Link>
             </View>
-            
+            <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
+                <Text style={{color: Colors.white, textAlign:"center"}} >By continuing you agree to Terms & Conditions and Privacy Policy</Text>
+            </View>
           </View>
         )}
       </Formik>

@@ -7,7 +7,13 @@ import 'react-native-reanimated';
 import React from 'react';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import SignUp from './signup';
+
+
+
+export const unstable_settings = {
+  // Ensure that reloading on `/modal` keeps a back button present.
+  initialRouteName: '',
+};
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -32,19 +38,14 @@ export default function RootLayout() {
  
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <SignUp/>
-      {/* <Stack >
-      {!isLoggedIn ? (
-          <>
-            <Stack.Screen name="login" options={{ headerShown: false }} />
-            <Stack.Screen name="signup" options={{ headerShown: false }} />
-          </>
-        ) : (
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        )}
+      <Stack >
+        <Stack.Screen name="(auth)" options={{
+          headerShown: false,
+          headerTitle: "Mumo mutinda"
+        }} />
+        {/* <Stack.Screen name="signup" options={{ headerShown: false }} /> */}
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
-      </Stack> */}
-    </ThemeProvider>
+      </Stack>
   );
 }
