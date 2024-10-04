@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Colors } from '@/constants/Colors';
 import { Link } from 'expo-router';
+import { router } from 'expo-router';
 ;
 
 export default function Login() {
@@ -25,10 +26,11 @@ export default function Login() {
         </View>
       <Formik
         initialValues={{ email: '', password: ''}}
-        validationSchema={LoginSchema}
+        // validationSchema={LoginSchema}
         onSubmit={(values: any) => {
           // Handle form submission
           console.log(values);
+          router.push("(tabs)")
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (

@@ -7,12 +7,13 @@ import 'react-native-reanimated';
 import React from 'react';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
+import Loader from './loader';
+
 
 
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: '',
+  initialRouteName: '(auth)',
 };
 
 
@@ -35,17 +36,18 @@ export default function RootLayout() {
     return null;
   }
 
- 
+
+
 
   return (
-      <Stack >
-        <Stack.Screen name="(auth)" options={{
-          headerShown: false,
-          headerTitle: "Mumo mutinda"
-        }} />
-        {/* <Stack.Screen name="signup" options={{ headerShown: false }} /> */}
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
+      <>
+          <Stack>
+              <Stack.Screen name="(auth)" options={{
+                headerShown: false,
+              }} />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+      </>  
   );
 }
