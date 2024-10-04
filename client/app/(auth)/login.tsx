@@ -75,7 +75,7 @@ export default function Login() {
             </View>
             <TouchableWithoutFeedback onPress={handleSubmit as any} >
                 <View style={styles.buttonContainer}>
-                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN </Text>
+                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN IN</Text>
                 </View>
             </TouchableWithoutFeedback>
             <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
