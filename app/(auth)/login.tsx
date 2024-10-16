@@ -30,7 +30,7 @@ export default function Login() {
         onSubmit={(values: any) => {
           // Handle form submission
           console.log(values);
-          router.push("(tabs)")
+          router.push("/(tabs)")
         }}
       >
         {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
@@ -69,18 +69,18 @@ export default function Login() {
                         onValueChange={toggleSwitch}
                         value={isEnabled}
                     />
-                    <Text style={{color: Colors.white}}>Remember me</Text>
+                    <Text style={{color: Colors.light}}>Remember me</Text>
                 </View>
-                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/">forgot password?</Link>
+                <Link style={{color: Colors.light, textDecorationLine:"underline"}} href="/">forgot password?</Link>
             </View>
             <TouchableWithoutFeedback onPress={handleSubmit as any} >
                 <View style={styles.buttonContainer}>
-                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN IN</Text>
+                    <Text style={{fontSize: 16, color: Colors.light, fontWeight: "700"}}>SIGN IN</Text>
                 </View>
             </TouchableWithoutFeedback>
             <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
-                <Text style={{color: Colors.white}} >Don't have an account?</Text>
-                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/signup">Sign Up</Link>
+                <Text style={{color: Colors.light}} >Don't have an account?</Text>
+                <Link style={{color: Colors.light, textDecorationLine:"underline"}} href="/signup">Sign Up</Link>
             </View>
           </View>
         )}
@@ -106,14 +106,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
-    color: Colors.white, 
+    color: Colors.light, 
     width: "50%",
     fontWeight: 'bold',
   },
   heading: {
     fontSize: 22,
     fontWeight: 'semibold',
-    color: Colors.white
+    color: Colors.light
   },
   loginContainer: {
     display: 'flex',
@@ -123,9 +123,9 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#0F1123", 
-    color: Colors.white,
+    color: Colors.light,
     borderBottomWidth: 0.5,  
-    borderBottomColor: Colors.white,  
+    borderBottomColor: Colors.light,  
     borderRadius: 0,  
     paddingHorizontal: 10,
     paddingBottom: 3,

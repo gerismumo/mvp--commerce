@@ -99,15 +99,15 @@ export default function SignUp() {
             )}
             <TouchableWithoutFeedback onPress={handleSubmit as any} >
                 <View style={styles.buttonContainer}>
-                    <Text style={{fontSize: 16, color: Colors.white, fontWeight: "700"}}>SIGN UP</Text>
+                    <Text style={{fontSize: 16, color: Colors.light, fontWeight: "700"}}>SIGN UP</Text>
                 </View>
             </TouchableWithoutFeedback>
             <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
-                <Text style={{color: Colors.white}} >Already have an account?</Text>
-                <Link style={{color: Colors.white, textDecorationLine:"underline"}} href="/login">Login</Link>
+                <Text style={{color: Colors.light}} >Already have an account?</Text>
+                <Link style={{color: Colors.light, textDecorationLine:"underline"}} href="/login">Login</Link>
             </View>
             <View style={{display: "flex", flexDirection: "row", gap: 2, justifyContent:"center", marginTop: 15}}>
-                <Text style={{color: Colors.white, textAlign:"center"}} >By continuing you agree to Terms & Conditions and Privacy Policy</Text>
+                <Text style={{color: Colors.light, textAlign:"center"}} >By continuing you agree to Terms & Conditions and Privacy Policy</Text>
             </View>
           </View>
         )}
@@ -133,14 +133,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
-    color: Colors.white, 
+    color: Colors.light, 
     width: "50%",
     fontWeight: 'bold',
   },
   heading: {
     fontSize: 22,
     fontWeight: 'semibold',
-    color: Colors.white
+    color: Colors.light
   },
   loginContainer: {
     display: 'flex',
@@ -150,9 +150,9 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: "#0F1123", 
-    color: Colors.white,
+    color: Colors.light,
     borderBottomWidth: 0.5,  
-    borderBottomColor: Colors.white,  
+    borderBottomColor: Colors.light,  
     borderRadius: 0,  
     paddingHorizontal: 10,
     paddingBottom: 3,
